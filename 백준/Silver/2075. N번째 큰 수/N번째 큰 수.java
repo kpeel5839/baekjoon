@@ -29,7 +29,25 @@ public class Main {
             }
         }
 
-        Arrays.sort(arr);
-        System.out.println(arr[arr.length - N]);
+        PriorityQueue<int[]> q = new PriorityQueue<>((o1, o2) -> o2[0] - o1[0]);
+        for (int j = 0; j < N; j++) {
+            q.add(new int[] {arr[(N - 1) * N + j], (N - 1) * N + j});
+        }
+
+        int count = 0;
+        int ans = 0;
+        while (true) {
+            int[] poll = q.poll();
+            ans = poll[0];
+            count++;
+            
+            if (count == N) {
+                break;
+            }
+            
+            q.add(new int[] {arr[poll[1] - N], poll[1] - N});
+        }
+
+        System.out.println(ans);
     }
 }
