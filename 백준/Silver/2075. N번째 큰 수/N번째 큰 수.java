@@ -35,16 +35,16 @@ public class Main {
         }
 
         int count = 0;
-        int ans = 0;
+        int ans;
         while (true) {
             int[] poll = q.poll();
             ans = poll[0];
             count++;
-            
+
             if (count == N) {
                 break;
             }
-            
+
             q.add(new int[] {arr[poll[1] - N], poll[1] - N});
         }
 
