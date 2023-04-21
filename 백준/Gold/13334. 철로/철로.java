@@ -57,11 +57,12 @@ public class Main {
 
         for (int i = 0; i < l.size(); i++) {
             max = Math.max(max, l.get(i)[1]);
+            q.add(l.get(i)[0]);
+
             while (!q.isEmpty() && L < max - q.peek()) {
                 q.poll();
             }
 
-            q.add(l.get(i)[0]);
             ans = Math.max(ans, q.size());
         }
 
