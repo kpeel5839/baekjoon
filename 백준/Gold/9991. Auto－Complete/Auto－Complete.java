@@ -109,7 +109,7 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
-        Map<Request, Integer> m = new HashMap<>();
+        // Map<Request, Integer> m = new HashMap<>();
 
         int W = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(st.nextToken());
@@ -125,22 +125,22 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int nn = Integer.parseInt(st.nextToken());
             String s = st.nextToken();
-            Request request = new Request(nn, s);
+            // Request request = new Request(nn, s);
 
-            if (m.containsKey(request)) {
-                bw.write(m.get(request) + "\n");
-                continue;
-            }
+            // if (m.containsKey(request)) {
+            //     bw.write(m.get(request) + "\n");
+            //     continue;
+            // }
 
             int a = lowerBound(s, 0, ss.length - 1);
             a += (nn - 1);
 
             if (ss.length <= a || !equals(ss[a].w, s)) {
                 bw.write(-1 + "\n");
-                m.put(request, -1);
+                // m.put(request, -1);
             } else {
                 bw.write(ss[a].p + "\n");
-                m.put(request, ss[a].p);
+                // m.put(request, ss[a].p);
             }
         }
 
