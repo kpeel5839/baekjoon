@@ -40,13 +40,12 @@ public class Main {
                 lazy[c * 2] += v;
                 lazy[c * 2 + 1] += v;
             }
-            
+
             return;
         }
-        
+
         updateRange(c * 2, v, l, (l + r) / 2, ul, ur);
         updateRange(c * 2 + 1, v, (l + r) / 2 + 1, r, ul, ur);
-        tree[c] = tree[c * 2] + tree[c * 2 + 1];
     }
 
     public static void updateLazy(int c, int l, int r) {
@@ -80,13 +79,6 @@ public class Main {
 
         init();
 
-//        for (int i = 0; i <= height; i++) {
-//            for (int j = (int) Math.pow(2, i); j < (int) Math.pow(2, i + 1); j++) {
-//                System.out.print(tree[j] + " ");
-//            }
-//            System.out.println();
-//        }
-
         int M = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < M; i++) {
@@ -104,13 +96,6 @@ public class Main {
                 updateRange(1, 0, 1, (int) Math.pow(2, height), x, x);
                 bw.write(tree[(int)Math.pow(2, height) + x - 1] + "\n");
             }
-
-//            for (int c = 0; c <= height; c++) {
-//                for (int j = (int) Math.pow(2, c); j < (int) Math.pow(2, c + 1); j++) {
-//                    System.out.print(tree[j] + " ");
-//                }
-//                System.out.println();
-//            }
         }
 
         bw.flush();
