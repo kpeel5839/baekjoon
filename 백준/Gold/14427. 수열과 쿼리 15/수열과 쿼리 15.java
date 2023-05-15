@@ -99,7 +99,6 @@ public class Main {
         }
         value[start] = Integer.MAX_VALUE;
         init();
-//        print();
 
         int Q = Integer.parseInt(br.readLine());
         for (int i = 0; i < Q; i++) {
