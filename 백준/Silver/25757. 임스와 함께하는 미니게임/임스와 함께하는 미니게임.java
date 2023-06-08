@@ -41,7 +41,7 @@ public class Main {
             set.add(s);
             count++;
         }
-        
+
         System.out.println(count / M);
     }
 }
