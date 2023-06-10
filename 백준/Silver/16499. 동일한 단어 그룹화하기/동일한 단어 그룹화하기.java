@@ -1,21 +1,22 @@
-import java.util.*;
-import java.io.*;
-import java.util.stream.Collectors;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 // 16499 : 동일한 단어 그룹화하기
 
 /**
- * Example
- * 4
- * cat
- * dog
- * god
- * tca
+ * Example 4 cat dog god tca
  */
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        // System.setIn(new FileInputStream("/Users/jaeyeonkim/Desktop/CodingTest/CodingTest/BJ/Java/_16499_problem/src/input.txt"));
+        // System.setIn(new FileInputStream(
+                //"/Users/jaeyeonkim/Desktop/CodingTest/CodingTest/BJ/Java/_16499_problem/src/input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int N = Integer.parseInt(br.readLine());
@@ -49,7 +50,7 @@ public class Main {
                     continue Loop;
                 }
             }
-            
+
             list.add(cList);
             ans++;
         }
