@@ -32,7 +32,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        // System.setIn(new FileInputStream("/Users/jaeyeonkim/Desktop/CodingTest/CodingTest/BJ/Java/_17225_problem/src/input.txt"));
+//        System.setIn(new FileInputStream("/Users/jaeyeonkim/Desktop/CodingTest/CodingTest/BJ/Java/_17225_problem/src/input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -40,8 +40,9 @@ public class Main {
         Map<String, Integer> index = Map.of("B", 0, "R", 1);
         int[] time = new int[] {Integer.parseInt(st.nextToken()), Integer.parseInt(st.nextToken())};
         int N = Integer.parseInt(st.nextToken());
-        List<Gift> list = new ArrayList<>();
+        int[] nowTime = new int[] {0, 0};
         List<ArrayList<Integer>> answer = new ArrayList<>();
+        List<Gift> list = new ArrayList<>();
 
         for (int i = 0; i < 2; i++) {
             answer.add(new ArrayList<>());
@@ -53,13 +54,22 @@ public class Main {
             int t = Integer.parseInt(st.nextToken());
             String color = st.nextToken();
             int count = Integer.parseInt(st.nextToken());
+            t = Math.max(nowTime[index.get(color)], t);
+            nowTime[index.get(color)] = t;
 
             for (int j = 0; j < count; j++) {
-                list.add(new Gift(color, t + (j * time[index.get(color)])));
+                list.add(new Gift(color, nowTime[index.get(color)]));
+                nowTime[index.get(color)] += time[index.get(color)];
             }
         }
 
-        list.sort((o1, o2) -> o1.time - o2.time);
+        list.sort((o1, o2) -> {
+            if (o1.time == o2.time) {
+                return index.get(o1.color) - index.get(o2.color);
+            }
+
+            return o1.time - o2.time;
+        });
 
         for (int i = 0; i < list.size(); i++) {
             Gift gift = list.get(i);
