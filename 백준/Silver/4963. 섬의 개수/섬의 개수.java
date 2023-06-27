@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-// 4693 : 섬의 개수
+// 4963 : 섬의 개수
 
 /**
  * Example
