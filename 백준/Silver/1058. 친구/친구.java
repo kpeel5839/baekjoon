@@ -29,7 +29,7 @@ public class Main {
             if (3 <= point[1]) {
                 continue;
             }
-            
+
             ans++;
 
             for (int i = 0; i < N; i++) {
@@ -44,6 +44,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
+        //System.setIn(new FileInputStream(
+               // "/Users/jaeyeonkim/Desktop/CodingTest/CodingTest/BJ/Java/_1058_problem/src/input.txt"));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         N = Integer.parseInt(br.readLine());
