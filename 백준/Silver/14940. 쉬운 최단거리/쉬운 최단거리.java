@@ -50,7 +50,7 @@ public class Main {
                 if (outOfRange(ny, nx) || visited[ny][nx] != -1) {
                     continue;
                 }
-                
+
                 q.add(new int[] {ny, nx, point[2] + 1});
                 visited[ny][nx] = point[2] + 1;
             }
