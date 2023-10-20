@@ -59,28 +59,14 @@ public class Main {
         }
 
         List<int[]> list = new ArrayList<>();
-        int zeroCount = 0;
 
         for (int i = 0; i < 4; i++) {
             if (outOfRange(y + dy[i], x + dx[i])) {
-                continue;
-            }
-
-            if (tiles[y + dy[i]][x + dx[i]] == 0) {
-                zeroCount++;
+                goNext(y, x);
+                return;
             }
 
             list.add(new int[] {y + dy[i], x + dx[i]});
-        }
-
-        if (list.size() != 4) {
-            goNext(y, x);
-            return;
-        }
-
-        if (zeroCount < 3) {
-            goNext(y, x);
-            return;
         }
 
         for (int c = 0; c < 4; c++) {
