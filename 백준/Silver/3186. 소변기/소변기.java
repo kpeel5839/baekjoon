@@ -23,22 +23,17 @@ public class Main {
 
         // 3 2 -> 3 초 동안 소변기 앞에 사용자가 서 있으면 사용중
         // 2 초 동안 소변기 앞에 사용자가 없으면 플러쉬
-
         char[] c = br.readLine().toCharArray();
         List<Integer> ans = new ArrayList<>();
+
         for (int i = 0; i < N; i++) { // 1
             // 011101001101110001
-            //
-            if (status) { // 소변기가 사용중인 경우
-                if (c[i] == '1') {
-                    goal = i + L;
-                }
+            if (status && c[i] == '1') { // 소변기가 사용중인 경우
+                goal = i + L;
             }
 
-            if (!status) { // 소변기가 사용중이지 않은 경우
-                if (c[i] == '0') {
-                    goal = i + K;
-                }
+            if (!status && c[i] == '0') { // 소변기가 사용중이지 않은 경우
+                goal = i + K;
             }
 
             if (!status && i == goal) { // 소변기가 사용중이지 않으면서 내가 연속적으로 점유하고 있는 시간이 목표시간에 다다랐을 때
