@@ -42,11 +42,9 @@ public class Main {
 
             if (m.containsKey(c)) {
                 int[] newPosition = m.get(c).apply(nowPosition);
-
                 if (outOfRange(newPosition[0], newPosition[1]) || map[newPosition[0]][newPosition[1]] != '.') {
                     continue;
                 }
-
                 map[nowPosition[0]][nowPosition[1]] = '.';
                 map[newPosition[0]][newPosition[1]] = '@';
                 nowPosition = new int[] {newPosition[0], newPosition[1]};
