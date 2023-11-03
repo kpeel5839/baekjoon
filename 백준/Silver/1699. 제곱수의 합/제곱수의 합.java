@@ -31,6 +31,7 @@ public class Main {
         }
 
         dp[number] = minValue;
+        // dp[i] = 내가 현재까지의 합이 number 이면 N 을 만들기 까지 걸리는 최소한의 횟수
         return dp[number];
     }
 
