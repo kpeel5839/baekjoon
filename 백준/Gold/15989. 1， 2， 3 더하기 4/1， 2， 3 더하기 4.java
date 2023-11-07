@@ -24,7 +24,7 @@ public class Main {
                 dp[i][j] = dp[i - 1][j] + (j - i < 0 ? 0 : dp[i][j - i]);
             }
         }
-        
+
         StringBuilder ans = new StringBuilder();
 
         for (int i = 0; i < N; i++) {
