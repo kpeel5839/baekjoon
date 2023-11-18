@@ -1,8 +1,5 @@
 class Solution {
     public int solution(int[] a) {
-        // 왼쪽에서 가장 작은애
-        // 오른쪽에서 가장 작은애중
-        // 본인보다 큰 애가 두마리만 아니면 가능한 것
         int[] leftToRight = new int[a.length];
         int[] rightToLeft = new int[a.length];
         leftToRight[0] = a[0];
