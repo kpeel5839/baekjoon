@@ -3,13 +3,6 @@ import java.io.*;
 
 // 16500 : 문자열 판별
 
-/**
- * Example
- * softwarecontest
- * 2
- * software
- * contest
- */
 public class Main {
 
     public static int N;
