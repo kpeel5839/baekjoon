@@ -4,12 +4,6 @@ import java.io.*;
 
 // 1082 : 방 번호
 
-/**
- * Example
- * 10
- * 1 1 1 1 1 1 1 1 1 1
- * 50
- */
 public class Main {
 
     public static int N;
@@ -77,4 +71,5 @@ public class Main {
 
         System.out.println(answer);
     }
+
 }
