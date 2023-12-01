@@ -26,7 +26,7 @@ public class Main {
             st = new StringTokenizer(br.readLine());
             int sum = 0;
             int max = Integer.MIN_VALUE;
-            
+
             for (int i = 0; i < N; i++) {
                 sum += Integer.parseInt(st.nextToken());
                 max = Math.max(max, sum);
