@@ -26,8 +26,8 @@ int main(void){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
   
-  priority_queue<int, vector<int>, less<int>> a;
-  priority_queue<int, vector<int>, greater<int>> b;
+  priority_queue<int, vector<int>, less<int> > a;
+  priority_queue<int, vector<int>, greater<int> > b;
   
   int n;
   cin >> n;
