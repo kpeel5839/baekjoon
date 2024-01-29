@@ -26,7 +26,6 @@ const int MOD = 1e9 + 7;
 
 void dfs(int size, int index, vector<int>& count, string& s) {
   if (size == index) {
-    // answer.push_back(string(s));
     cout << s << '\n';
     return;
   }
@@ -47,46 +46,7 @@ void dfs(int size, int index, vector<int>& count, string& s) {
 int main(void){
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
-	
 	int n; cin >> n;
-  // map<int, set<string> > m;
-
-  // for (int i = 0; i < n; i++) {
-  //   string s; cin >> s;
-  //   vector<int> count(26, 0);
-  //   string orderedString;
-    
-  //   for (int j = 0; j < s.length(); j++) {
-  //     count[s.at(j) - 'a']++;
-  //   }
-
-  //   for (int j = 0; j < count.size(); j++) {
-  //     for (int c = 0; c < count[j]; c++) {
-  //       orderedString.push_back(j + 'a');
-  //     }
-  //   }
-
-  //   m[orderedString.length()].insert(orderedString);
-  // }
-  
-  // vector<string> answer;
-  // for (int i = 1; i <= 20; i++) {
-  //   for (auto v : m[i]) {
-  //     vector<int> count(26, 0);
-
-  //     for (int j = 0; j < v.length(); j++) {
-  //       count[v.at(j) - 'a']++;
-  //     }
-
-  //     string s = "";
-  //     dfs(i, 0, answer, count, s);
-  //   }
-  // }
-
-  // sort(answer.begin(), answer.end());
-  // for (auto v : answer) {
-  //   cout << v << '\n';
-  // }
 
   while (n-- > 0) {
     string s; cin >> s;
