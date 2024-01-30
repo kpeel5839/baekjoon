@@ -66,7 +66,8 @@ int bfs(int startNode, vi& non, vii& graph, vi& parent) {
       continue;
     }
 
-    q.push(makeVector(startNode, i, min(graph[startNode][i], non[i])));
+    q.push({startNode, i, min(graph[startNode][i], non[i])});
+    // q.push(makeVector(startNode, i, min(graph[startNode][i], non[i])));
   }
   
   while (q.size() != 0) {
@@ -85,7 +86,8 @@ int bfs(int startNode, vi& non, vii& graph, vi& parent) {
         continue;
       }
 
-      q.push(makeVector(p[1], i, min(graph[p[1]][i], non[i])));
+      q.push({p[1], i, min(graph[p[1]][i], non[i])});
+      // q.push(makeVector(p[1], i, min(graph[p[1]][i], non[i])));
     }
   }
   
