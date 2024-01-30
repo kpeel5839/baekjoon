@@ -49,14 +49,6 @@ struct comp {
   }
 };
 
-vi makeVector(int a, int b, int c) {
-  vi v;
-  v.push_back(a);
-  v.push_back(b);
-  v.push_back(c);
-  return v;
-}
-
 int bfs(int startNode, vi& non, vii& graph, vi& parent) {
   priority_queue<vi, vii, comp> q; 
   int answer = non[startNode];
@@ -67,7 +59,6 @@ int bfs(int startNode, vi& non, vii& graph, vi& parent) {
     }
 
     q.push({startNode, i, min(graph[startNode][i], non[i])});
-    // q.push(makeVector(startNode, i, min(graph[startNode][i], non[i])));
   }
   
   while (q.size() != 0) {
@@ -87,7 +78,6 @@ int bfs(int startNode, vi& non, vii& graph, vi& parent) {
       }
 
       q.push({p[1], i, min(graph[p[1]][i], non[i])});
-      // q.push(makeVector(p[1], i, min(graph[p[1]][i], non[i])));
     }
   }
   
