@@ -85,7 +85,7 @@ void getAnswer() {
   while (q.size() != 0) {
     vl p = q.front(); q.pop();
     
-    if (visited[p[2] != 0][p[0]] < p[1] - p[2] - 10) {
+    if (visited[p[2] != 0][p[0]] < p[1] - p[2] - 1) {
       continue;
     }
 
