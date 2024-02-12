@@ -41,89 +41,60 @@ const int inf = 2e9;
 const int size = 1 << 18;
 const int mod = 1e9 + 7;
 
-int n, m, h;
-vlll graph;
-vl haybales;
-vl minimumCosts;
-vll visited;
-vi answer;
+viii graph;
+int N, M, K;
+vi H;
+vi Y;
 
-void getMinimumCosts() {
-  minimumCosts = vl(n + 1, INF);
-  queue<vl> q;
-  q.push({n, 0});
-  minimumCosts[n] = 0;
-  
+void dijkstra(int source, vi& dist) {
+  queue<vi> q;
+  q.push({source, 0});
+  dist[source] = 0;
+
   while (q.size() != 0) {
-    vl p = q.front(); q.pop();
-
-    if (minimumCosts[p[0]] < p[1]) {
+    vi p = q.front(); q.pop();
+    
+    if (dist[p[0]] < p[1]) {
       continue;
     }
-    
-    for (vl next : graph[p[0]]) { // {index, cost}
-      if (next[1] + p[1] < minimumCosts[next[0]]) {
-        minimumCosts[next[0]] = next[1] + p[1];
+
+    for (vi next : graph[p[0]]) {
+      if (next[1] + p[1] < dist[next[0]]) {
+        dist[next[0]] = next[1] + p[1];
         q.push({next[0], next[1] + p[1]});
       }
     }
   }
 }
 
-void getAnswer() {
-  if (haybales[n] != 0) {
-    answer = vi(n + 1, 1);
-    return;
-  }
-
-  answer = vi(n + 1, 0);
-  visited = vll(2, vl(n + 1, INF));
-  queue<vl> q; 
-  q.push({n, 0, 0});
-  visited[0][n] = 0;
-  
-  while (q.size() != 0) {
-    vl p = q.front(); q.pop();
-    
-    if (visited[p[2] != 0][p[0]] < p[1] - p[2] - 1) {
-      continue;
-    }
-
-    for (vl next : graph[p[0]]) {
-      ll nextHaybales = max(p[2], haybales[next[0]]);
-      
-      if (next[1] + p[1] - nextHaybales < visited[nextHaybales != 0][next[0]]) {
-        visited[nextHaybales != 0][next[0]] = next[1] + p[1] - nextHaybales;
-        q.push({next[0], next[1] + p[1], nextHaybales});
-      }
-
-      if (nextHaybales != 0 && (next[1] + p[1] - nextHaybales) <= minimumCosts[next[0]]) {
-        answer[next[0]] = 1;
-      }
-    }
-  }
-}
-
 void solve() {
-  cin >> n >> m >> h;
-  graph = vlll(n + 1);
-  haybales = vl(n + 1, 0);
-  
-  for (int i = 0; i < m; i++) {
+  cin >> N >> M >> K;
+  graph = viii(N + 1);
+  vi originalDist(N + 1, inf);
+
+  for (int i = 0; i < M; i++) {
     int a, b, c; cin >> a >> b >> c;
-    graph[a].push_back({b, c});
-    graph[b].push_back({a, c});
+    graph[a - 1].push_back({b - 1, c});
+    graph[b - 1].push_back({a - 1, c});
   }
 
-  for (int i = 0; i < h; i++) {
-    int index; ll yummies; cin >> index >> yummies;
-    haybales[index] = max(haybales[index], yummies);
+  for (int i = 0; i < K; i++) {
+    int haybales, yummies; cin >> haybales >> yummies;
+    H.push_back(haybales - 1);
+    Y.push_back(yummies);
   }
 
-  getMinimumCosts();
-  getAnswer();
-  for (int i = 1; i < n; i++) {
-    cout << answer[i] << "\n";
+  dijkstra(N - 1, originalDist);
+  vi dist(N + 1, inf);
+  
+  for (int i = 0; i < K; i++) {
+    graph[N].push_back({H[i], originalDist[H[i]] - Y[i]});
+  }
+
+  dijkstra(N, dist);
+
+  for (int i = 0; i < N - 1; i++) {
+    cout << (dist[i] <= originalDist[i]) << "\n";
   }
 }
 
