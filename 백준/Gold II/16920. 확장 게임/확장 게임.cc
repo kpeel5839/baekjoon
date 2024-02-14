@@ -97,6 +97,9 @@ void solve() {
         while(temp.size()!=0){
           queues[i].push(temp.front());temp.pop();
         }
+        if(queues[i].size()==0){
+          break;
+        }
       }
     }
   }
