@@ -64,7 +64,7 @@ int dfs(int index, int jump){
 void solve() {
   cin>>N>>M;
   isNotStanding=vb(N+1,false);
-  dp=vii(200,vi(N+1,inf));
+  dp=vii(150,vi(N+1,inf));
   for(int i=0; i<M; i++) {
     int index;cin>>index;isNotStanding[index]=true;
   }
