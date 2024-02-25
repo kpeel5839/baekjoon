@@ -20,7 +20,6 @@ def solve():
         startValue+=5
       else:
         startValue-=7
-    "{:.2f}".format(startValue)
     sys.stdout.write("{:.2f}".format(startValue));
     sys.stdout.write("\n");
 
